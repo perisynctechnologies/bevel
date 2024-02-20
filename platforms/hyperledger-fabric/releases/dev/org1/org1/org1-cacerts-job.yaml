@@ -1,0 +1,37 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: org1-cacerts-job
+  namespace: org1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: org1-cacerts-job
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-prod
+        namespace: flux-prod
+      chart: platforms/hyperledger-fabric/charts/fabric-cacerts-gen
+  values:
+    metadata:
+      name: org1
+      component_name: org1-net
+      namespace: org1-net    
+      images:
+       alpineutils: ghcr.io/hyperledger/bevel-alpine:latest
+    vault:
+      role: vault-role
+      address: http://40.114.165.220:20001
+      authpath: prodorg1
+      secretcryptoprefix: secretsv2/data/org1/peerOrganizations/org1-net/ca
+      secretcredentialsprefix: secretsv2/data/org1/credentials/org1-net/ca/org1
+      serviceaccountname: vault-auth
+      type: hashicorp
+      imagesecretname: regcred
+      
+    ca:
+      subject: /C=GB/ST=London/L=London/O=Org1/CN=ca.org1-net
