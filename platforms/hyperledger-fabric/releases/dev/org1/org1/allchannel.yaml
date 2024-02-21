@@ -47,11 +47,11 @@ spec:
     orderer:
       address: orderer1.org2-net:7050
     channeltx: |-
-      CqkDChgKFggCGgYIkIbXrgYiCmFsbGNoYW5uZWwSjAMKiQMKCmFsbGNoYW5uZWwSLhIcCgtBcHBs
+      CqkDChgKFggCGgYIp5PXrgYiCmFsbGNoYW5uZWwSjAMKiQMKCmFsbGNoYW5uZWwSLhIcCgtBcHBs
       aWNhdGlvbhINEgsKB29yZzFNU1ASABoOCgpDb25zb3J0aXVtEgAaygISngIKC0FwcGxpY2F0aW9u
       Eo4CCAESCwoHb3JnMU1TUBIAGiQKDENhcGFiaWxpdGllcxIUEgoKCAoEVjJfMBIAGgZBZG1pbnMi
-      IgoHUmVhZGVycxIXEg0IAxIJCgdSZWFkZXJzGgZBZG1pbnMiIgoHV3JpdGVycxIXEg0IAxIJCgdX
-      cml0ZXJzGgZBZG1pbnMiIgoGQWRtaW5zEhgSDggDEgoKBkFkbWlucxACGgZBZG1pbnMiLAoLRW5k
-      b3JzZW1lbnQSHRITCAMSDwoLRW5kb3JzZW1lbnQQAhoGQWRtaW5zIjUKFExpZmVjeWNsZUVuZG9y
-      c2VtZW50Eh0SEwgDEg8KC0VuZG9yc2VtZW50EAIaBkFkbWlucyoGQWRtaW5zGicKCkNvbnNvcnRp
+      LAoLRW5kb3JzZW1lbnQSHRITCAMSDwoLRW5kb3JzZW1lbnQQAhoGQWRtaW5zIjUKFExpZmVjeWNs
+      ZUVuZG9yc2VtZW50Eh0SEwgDEg8KC0VuZG9yc2VtZW50EAIaBkFkbWlucyIiCgdSZWFkZXJzEhcS
+      DQgDEgkKB1JlYWRlcnMaBkFkbWlucyIiCgdXcml0ZXJzEhcSDQgDEgkKB1dyaXRlcnMaBkFkbWlu
+      cyIiCgZBZG1pbnMSGBIOCAMSCgoGQWRtaW5zEAIaBkFkbWlucyoGQWRtaW5zGicKCkNvbnNvcnRp
       dW0SGRIXChVTdXBwbHlDaGFpbkNvbnNvcnRpdW0=
