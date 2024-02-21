@@ -55,5 +55,5 @@ spec:
         git_username: "Nazim-Perisync"
         url: github.com/perisynctechnologies/chaicode-archive.git
         branch: main
-        path: chaincode
+        path: chaincode/bevelchaincode
       endorsementpolicies:  ''
