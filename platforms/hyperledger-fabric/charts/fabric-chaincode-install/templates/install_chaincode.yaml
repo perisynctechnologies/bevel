@@ -278,6 +278,10 @@ spec:
               export CHAINCODE_NAME=${PACKAGE_ID}
               echo "installing ${CHAINCODE_NAME} on ${CORE_PEER_ADDRESS}"
             fi
+
+            ## s3: checking content >>>
+            ls -la .
+
             ## Installing Chaincode
             peer lifecycle chaincode install ${CHAINCODE_NAME}.tar.gz
             echo "Chaincode installed for Fabric v.2.X"
