@@ -281,6 +281,7 @@ spec:
 
             ## s3: checking content >>>
             ls -la .
+            ls -la bevelchaincode
 
             ## Installing Chaincode
             peer lifecycle chaincode install ${CHAINCODE_NAME}.tar.gz
