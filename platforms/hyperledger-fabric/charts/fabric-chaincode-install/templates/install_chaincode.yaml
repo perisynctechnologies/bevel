@@ -219,6 +219,9 @@ spec:
             #   echo "installing ${CHAINCODE_NAME} on ${CORE_PEER_ADDRESS}"
             # fi
 
+            echo "s3: content check..."
+            ls -l
+
             ## Installing Chaincode
             peer lifecycle chaincode install ${CHAINCODE_NAME}.tar.gz
             echo "Chaincode installed for Fabric v.2.X"
