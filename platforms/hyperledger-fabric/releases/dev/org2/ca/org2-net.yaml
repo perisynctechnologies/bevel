@@ -1,0 +1,51 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: org2-net-ca
+  namespace: org2-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: org2-net-ca
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-prod
+        namespace: flux-prod
+      chart: platforms/hyperledger-fabric/charts/fabric-ca-server   
+  values:
+    metadata:
+      namespace: org2-net
+      images:
+        alpineutils: ghcr.io/hyperledger/bevel-alpine:latest
+        ca: ghcr.io/hyperledger/bevel-fabric-ca:1.4.8
+    server:
+      name: ca
+      tlsstatus: true
+      admin: org2-admin
+        
+    storage:
+      storageclassname: org2-bevel-storageclass
+      storagesize: 512Mi 
+    vault:
+      role: vault-role
+      address: http://40.114.165.220:20001
+      authpath: prodorg2
+      secretcert: secretsv2/data/org2/ordererOrganizations/org2-net/ca?ca.org2-net-cert.pem
+      secretkey: secretsv2/data/org2/ordererOrganizations/org2-net/ca?org2-net-CA.key
+      secretadminpass: secretsv2/data/org2/credentials/org2-net/ca/org2?user
+      serviceaccountname: vault-auth
+      type: hashicorp
+      imagesecretname: regcred
+    service:
+      servicetype: ClusterIP
+      ports:
+        tcp:
+          clusteripport: 7054
+    proxy:
+      provider: none
+      type: orderer
+      external_url_suffix: develop.local.com
