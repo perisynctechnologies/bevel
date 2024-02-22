@@ -219,6 +219,7 @@ spec:
             #   echo "installing ${CHAINCODE_NAME} on ${CORE_PEER_ADDRESS}"
             # fi
 
+            echo "chaincode: ${CHAINCODE_NAME}_${CHAINCODE_VERSION}"
             echo "s3: content check..."
             ls -l
 
