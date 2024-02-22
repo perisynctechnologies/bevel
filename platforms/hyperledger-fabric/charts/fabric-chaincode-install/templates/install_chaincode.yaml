@@ -188,8 +188,9 @@ spec:
 
             cd $GOPATH/src/github.com/chaincode
 
-            #chaincode path
-            CC_SRC_PATH="github.com/chaincode/bevelchaincode/"
+            echo "chaincode path...""
+            CC_SRC_PATH="$GOPATH/src/github.com/chaincode/bevelchaincode/"
+            echo $CC_SRC_PATH
           fi
 
           version1_4=`echo $NETWORK_VERSION | grep -c 1.4`
@@ -207,7 +208,7 @@ spec:
 
             echo "Installing Chaincode for ${NETWORK_VERSION}"
             if [ $PEER_NAME = "peer0" ];then
-              ## packaging chaincode
+              echo "packaging chaincode..."
               echo "Packaging chaincode for the first peer"
               peer lifecycle chaincode package ${CHAINCODE_NAME}.tar.gz --path ${CC_SRC_PATH} --lang ${CC_RUNTIME_LANGUAGE} --label ${CHAINCODE_NAME}_${CHAINCODE_VERSION}
             else
@@ -224,6 +225,7 @@ spec:
 
             echo "chaincode label: ${CHAINCODE_NAME}_${CHAINCODE_VERSION}"
             echo "s3: content check..."
+            pwd
             ls -l
 
             ## Installing Chaincode
