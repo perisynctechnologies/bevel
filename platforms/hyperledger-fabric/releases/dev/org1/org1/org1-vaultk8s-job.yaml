@@ -1,0 +1,37 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: org1-vaultk8s-job
+  namespace: org1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  releaseName: org1-vaultk8s-job
+  interval: 1m
+  chart:
+   spec:
+    chart: platforms/shared/charts/bevel-vault-mgmt
+    sourceRef:
+      kind: GitRepository
+      name: flux-prod
+      namespace: flux-prod
+  values:
+    nameOverride: org1-vaultk8s-job
+    global:
+      serviceAccountName: vault-auth
+      cluster:
+        cloudNativeServices: false
+        kubernetesUrl: https://dnnv2-dns-kacad6bl.hcp.westeurope.azmk8s.io:443
+      vault:
+        type: hashicorp
+        role: vault-role
+        address: http://40.114.165.220:20001
+        authPath: prodorg1
+        network: fabric
+        secretEngine: secretsv2
+        secretPrefix: "data/org1"
+        tls:
+    image:
+      repository: ghcr.io/hyperledger/bevel-alpine
+      tag: latest
+      pullSecret: "regcred"
