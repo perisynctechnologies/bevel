@@ -1,0 +1,57 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: channel-org1-allchannel
+  namespace: org1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: channel-org1-allchannel
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-prod
+        namespace: flux-prod
+      chart: platforms/hyperledger-fabric/charts/fabric-channel-create   
+  values:
+    metadata:
+      namespace: org1-net
+      network:
+        version: 2.2.2
+      images:
+        fabrictools: ghcr.io/hyperledger/bevel-fabric-tools:2.2.2
+        alpineutils: ghcr.io/hyperledger/bevel-alpine:latest
+
+    peer:
+      name: peer0
+      address: peer0.org1-net:7051
+      localmspid: org1MSP
+      loglevel: debug
+      tlsstatus: true
+
+    vault:
+      role: vault-role
+      address: http://40.114.165.220:20001
+      authpath: prodorg1
+      adminsecretprefix: secretsv2/data/org1/peerOrganizations/org1-net/users/admin
+      orderersecretprefix: secretsv2/data/org1/peerOrganizations/org1-net/orderer 
+      serviceaccountname: vault-auth
+      type: hashicorp
+      imagesecretname: regcred
+    
+    channel:
+      name: allchannel
+    orderer:
+      address: orderer1.org2-net:7050
+    channeltx: |-
+      CqkDChgKFggCGgYIgJLbrgYiCmFsbGNoYW5uZWwSjAMKiQMKCmFsbGNoYW5uZWwSLhIcCgtBcHBs
+      aWNhdGlvbhINEgsKB29yZzFNU1ASABoOCgpDb25zb3J0aXVtEgAaygISngIKC0FwcGxpY2F0aW9u
+      Eo4CCAESCwoHb3JnMU1TUBIAGiQKDENhcGFiaWxpdGllcxIUEgoKCAoEVjJfMBIAGgZBZG1pbnMi
+      IgoHUmVhZGVycxIXEg0IAxIJCgdSZWFkZXJzGgZBZG1pbnMiIgoHV3JpdGVycxIXEg0IAxIJCgdX
+      cml0ZXJzGgZBZG1pbnMiIgoGQWRtaW5zEhgSDggDEgoKBkFkbWlucxACGgZBZG1pbnMiLAoLRW5k
+      b3JzZW1lbnQSHRITCAMSDwoLRW5kb3JzZW1lbnQQAhoGQWRtaW5zIjUKFExpZmVjeWNsZUVuZG9y
+      c2VtZW50Eh0SEwgDEg8KC0VuZG9yc2VtZW50EAIaBkFkbWlucyoGQWRtaW5zGicKCkNvbnNvcnRp
+      dW0SGRIXChVTdXBwbHlDaGFpbkNvbnNvcnRpdW0=
