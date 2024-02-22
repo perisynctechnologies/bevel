@@ -169,6 +169,9 @@ spec:
             exit 1
           fi
 
+          echo "installing docker..."
+          apt install docker.io
+
           ls
           echo $GOPATH
           
