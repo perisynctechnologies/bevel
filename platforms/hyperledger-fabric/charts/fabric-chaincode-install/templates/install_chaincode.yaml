@@ -185,7 +185,7 @@ spec:
             ls -l
 
             echo "installing latest go binaries..."
-            curl -OL https://go.dev/dl/go1.22.0.linux-amd64.tar.gz; tar -C /usr/local -xvf go1.22.0.linux-amd64.tar.gz
+            curl -OL https://go.dev/dl/go1.13.linux-amd64.tar.gz; tar -C /usr/local -xvf go1.13.linux-amd64.tar.gz
             export PATH=$PATH:/usr/local/go/bin
             go version
 
