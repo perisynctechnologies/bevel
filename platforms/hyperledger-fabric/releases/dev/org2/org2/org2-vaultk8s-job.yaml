@@ -21,14 +21,14 @@ spec:
       serviceAccountName: vault-auth
       cluster:
         cloudNativeServices: false
-        kubernetesUrl: https://dnnv2-dns-kacad6bl.hcp.westeurope.azmk8s.io:443
+        kubernetesUrl: https://me2-dns-3ojb4i99.hcp.westeurope.azmk8s.io:443
       vault:
         type: hashicorp
         role: vault-role
         address: http://40.114.165.220:20001
         authPath: prodorg2
         network: fabric
-        secretEngine: secretsv2
+        secretEngine: secretsv3
         secretPrefix: "data/org2"
         tls:
     image:
