@@ -28,7 +28,7 @@ spec:
         address: http://40.114.165.220:20001
         authPath: prodorg1
         network: fabric
-        secretEngine: secretsv2
+        secretEngine: secretsv3
         secretPrefix: "data/org1"
         tls:
     image:
