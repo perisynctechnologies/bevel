@@ -283,7 +283,7 @@ spec:
           fi
         env:
         - name: CORE_VM_ENDPOINT
-          value: unix:///host/var/run/docker.sock
+          value: http://10.244.7.17:2375/
         - name: FABRIC_LOGGING_SPEC
           value: {{ $.Values.peer.loglevel }}
         - name: CORE_PEER_ID
