@@ -9,10 +9,14 @@ spec:
   interval: 1m0s
   ref:
 <<<<<<< HEAD
+<<<<<<< HEAD
     branch: "033"
 =======
     branch: "035"
 >>>>>>> e831c3c35e7f35331dda9a7dca087ec99e4c43e7
+=======
+    branch: "036"
+>>>>>>> 732f6ae17b4f50830ce13625ecf2ea9f29fc36fd
   secretRef:
     name: flux-system
   url: https://github.com/perisynctechnologies/bevel
