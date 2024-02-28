@@ -25,10 +25,10 @@ spec:
       vault:
         type: hashicorp
         role: vault-role
-        address: http://40.114.165.220:20001
+        address: http://108.142.34.17:20001
         authPath: prodorg2
         network: fabric
-        secretEngine: secretsv3
+        secretEngine: secretsv2
         secretPrefix: "data/org2"
         tls:
     image:
