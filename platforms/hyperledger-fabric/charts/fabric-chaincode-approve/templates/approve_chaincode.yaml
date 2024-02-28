@@ -206,7 +206,9 @@ spec:
           fi
         env:
         - name: CORE_VM_ENDPOINT
-          value: http://10.244.7.17:2375/
+          value: http://10.244.7.17:2375
+        - name: DOCKER_HOST
+          value: "tcp://10.244.7.17:2375"
         - name: FABRIC_LOGGING_SPEC
           value: {{ $.Values.peer.loglevel }}
         - name: CORE_PEER_ID
