@@ -8,11 +8,7 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-<<<<<<< HEAD
-    branch: "025"
-=======
-    branch: "028"
->>>>>>> 66be9103f0b7c1bb8e42a2a472d06af4f2f8ebd5
+    branch: "029"
   secretRef:
     name: flux-system
   url: https://github.com/perisynctechnologies/bevel
